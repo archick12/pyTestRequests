@@ -1,14 +1,16 @@
+from requests import Response
+
 from utils.api_operations import ApiOperations
 from utils.base_api_test import BaseAPITest
 
 
-class TestLogin(BaseAPITest):
+class TestIssueRefactored(BaseAPITest):
 
     def setup(self):
         BaseAPITest.authenticate()
 
-    def test_create_issue(self):
-        result = ApiOperations.create_issue("WEBINAR")
+    def test_create_issue_refactored(self):
+        result: Response = ApiOperations.create_issue("WEBINAR")
 
         assert 201 == result.status_code
         response_json = result.json()

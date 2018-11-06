@@ -1,4 +1,5 @@
 import requests
+from allure_commons._allure import step
 
 from utils.base_api_test import BaseAPITest
 from utils.json_fixture import JSONFixture
@@ -12,15 +13,18 @@ class ApiOperations:
 
     @staticmethod
     def create_issue(project_key):
-        result = requests.post(ApiOperations.CREATE_ISSUE,
+        with step("Create issue"):
+            result = requests.post(ApiOperations.CREATE_ISSUE,
                                json=JSONFixture.for_create_issue(project_key),
                                headers=BaseAPITest.headers,
                                cookies=BaseAPITest.cookie)
-        return result
+            return result
 
+    # @allure.step - will not work as expected. Returned value will be a link to memory
     @staticmethod
     def delete_issue(issue_id):
-        result = requests.delete(ApiOperations.DELETE_ISSUE.format(issue_id),
+        with step("Delete issue by ID"):
+            result = requests.delete(ApiOperations.DELETE_ISSUE.format(issue_id),
                                  headers=BaseAPITest.headers,
                                  cookies=BaseAPITest.cookie)
-        return result
+            return result

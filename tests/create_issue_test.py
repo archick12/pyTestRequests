@@ -1,19 +1,20 @@
+from pytest_testconfig import config
 from requests import Response
-from utils.api_manager import ApiManager
+
+from tests.utils.api import Api
 
 
 class TestIssueRefactored:
 
     def setup(self):
-        a = 0
-        # ApiManager.login()
+        Api.login()
 
     def test_create_issue_refactored(self):
-        result: Response = ApiManager.create_issue("WEBINAR")
+        result: Response = Api.create_issue("WEBINAR")
 
         assert 201 == result.status_code
         response_json = result.json()
 
         ticket_id = response_json["id"]
-        result = ApiManager.delete_issue(ticket_id)
+        result = Api.delete_issue(ticket_id)
         assert 204 == result.status_code

@@ -20,7 +20,7 @@ class Api:
             password = Api.parser.get('jira', 'password')
 
             result = HttpManager.auth(url, user_name, password)
-            HttpManager.LOGGER.info('Sending auth request with {0}, {1} credentials'.format(user_name, password))
+            HttpManager.LOGGER.info('Login with {0}, {1} credentials'.format(user_name, password))
             assert 200 == result.status_code
 
     @staticmethod
@@ -28,7 +28,7 @@ class Api:
         with step("Create issue"):
             result = HttpManager.post(Api.CREATE_ISSUE,
                                       JSONFixture.for_create_issue(project_key))
-
+            HttpManager.LOGGER.info('Create issue. Method: {0}, Data: {1}'.format("POST", JSONFixture.for_create_issue(project_key)))
             return result
 
     # @allure.step - will not work as expected. Returned value will be a link to memory
@@ -36,4 +36,5 @@ class Api:
     def delete_issue(issue_id):
         with step("Delete issue by ID"):
             result = HttpManager.delete(Api.DELETE_ISSUE.format(issue_id))
+            HttpManager.LOGGER.info('Delete issue. Method: {0}, URL : {1}'.format("DELETE", Api.DELETE_ISSUE.format(issue_id)))
             return result

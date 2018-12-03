@@ -1,4 +1,3 @@
-from pytest_testconfig import config
 from requests import Response
 
 from tests.utils.api import Api

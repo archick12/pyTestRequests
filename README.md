@@ -1,9 +1,9 @@
 # pyTestRequests
 
 # To run tests
-python3 -m pytest  -p no:cacheprovider  --alluredir ./reports
-allure generate -c ./reports
-allure serve ./reports
+1. python3 -m pytest  -p no:cacheprovider  --alluredir ./reports
+2. allure generate -c ./reports
+3. allure serve ./reports
 
 
 # Configuration files

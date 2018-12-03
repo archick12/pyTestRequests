@@ -1,5 +1,7 @@
 # pyTestRequests
 
+![alt text](https://github.com/archick12/pyTestRequests/blob/master/Structure.png)
+
 # To run tests
 1. python3 -m pytest  -p no:cacheprovider  --alluredir ./reports
 2. allure generate -c ./reports

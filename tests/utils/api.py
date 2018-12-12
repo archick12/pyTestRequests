@@ -29,6 +29,7 @@ class Api:
             result = HttpManager.post(Api.CREATE_ISSUE,
                                       JSONFixture.for_create_issue(project_key))
             HttpManager.LOGGER.info('Create issue. Method: {0}, Data: {1}'.format("POST", JSONFixture.for_create_issue(project_key)))
+            # TODO with this line allure report isn't generated - allure.attach("Create issue", JSONFixture.for_create_issue(project_key), AttachmentType.TEXT)
             return result
 
     # @allure.step - will not work as expected. Returned value will be a link to memory

@@ -1,5 +1,4 @@
 from requests import Response
-
 from tests.utils.api import Api
 
 

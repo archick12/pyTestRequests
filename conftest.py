@@ -1,9 +1,7 @@
 import pytest
-import os
+from tests.utils.api import Api
 
 
-# will be always executed before each test
 @pytest.fixture(scope="function", autouse=True)
 def pytest_runtest_setup():
-   # TODO Doesn't work. Overrides...  ApiManagerLogging.BASE_URL = config['jira']['url']
-    1==1
+    Api.login()

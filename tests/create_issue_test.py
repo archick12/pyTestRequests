@@ -5,7 +5,7 @@ from tests.utils.api import Api
 class TestIssueRefactored:
 
     def setup(self):
-        Api.login()
+        1 == 1
 
     def test_create_issue_refactored(self):
         result: Response = Api.create_issue("WEBINAR")

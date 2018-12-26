@@ -1,5 +1,5 @@
 requests>=2.19.1
-pytest==3.6.3
+pytest>=3.6.3
 allure-pytest>=2.5.1
 pytest-rerunfailures>=4.1
 pytest-testconfig=>0.1.0

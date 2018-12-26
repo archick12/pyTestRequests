@@ -1,8 +1,18 @@
+import logging
+
 import pytest
+from _pytest.python import Function
+from _pytest.runner import CallInfo
+
 from tests.utils.api import Api
 
 
 @pytest.fixture(scope="function", autouse=True)
-def pytest_runtest_setup():
+def authentication():
     Api.login()
-    yield
+
+
+def pytest_exception_interact(node, call: CallInfo, report):
+    logger = logging.getLogger(__name__)
+    if report.failed:
+        logger.error(call.excinfo)

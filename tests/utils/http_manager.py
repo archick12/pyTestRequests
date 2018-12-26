@@ -1,11 +1,9 @@
-import logging
 import requests
 
 
 class HttpManager:
     headers = {'Content-Type': 'application/json'}
     cookie = ""
-    LOGGER = logging.getLogger(__name__)
 
     @staticmethod
     def auth(url, user, password):
